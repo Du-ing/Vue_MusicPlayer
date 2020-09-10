@@ -19,7 +19,9 @@
               <span class="desc">{{ item.copywriter }}</span>
             </div>
             <img :src="item.picUrl" alt="" />
-            <span class="iconfont icon-play"></span>
+            <span class="iconfont icon-play">
+              <i class="el-icon-service"></i>
+            </span>
           </div>
           <p class="name">{{ item.name }}</p>
         </div>
@@ -36,13 +38,43 @@
           <div class="img-wrap">
             <!-- 封面 -->
             <img :src="item.picUrl" alt="" />
-            <span @click="playMusic(item.id)" class="iconfont icon-play"></span>
+            <span @click="playMusic(item.id)" class="iconfont icon-play">
+              <i class="el-icon-service"></i>
+            </span>
           </div>
           <div class="song-wrap">
             <!-- 歌名 -->
             <div class="song-name">{{ item.name }}</div>
             <!-- 歌手名 -->
             <div class="singer">{{ item.song.artists[0].name }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 推荐MV -->
+    <div class="mvs">
+      <h3 class="title">====推荐MV====</h3>
+      <div class="items">
+        <div class="item" v-for="(item,index) in mvs" :key="index">
+          <div class="img-wrap">
+            <img :src="item.picUrl" alt="" />
+            <span class="iconfont icon-play">
+              <i class="el-icon-video-play"></i>
+            </span>
+            <div class="num-wrap">
+              <div class="iconfont icon-play">
+                <i class="el-icon-video-play"></i>
+              </div>
+              <!-- 播放次数 -->
+              <div class="num">{{ item.playCount }}</div>
+            </div>
+          </div>
+          <div class="info-wrap">
+            <!-- mv名 -->
+            <div class="name">{{ item.name }}</div>
+            <!-- 歌手名 -->
+            <div class="singer">{{ item.artistName }}</div>
           </div>
         </div>
       </div>
@@ -60,7 +92,8 @@ export default {
     return{
       banners:[], //轮播图
       tuijian:[],  //推荐歌单
-      songs:[]
+      songs:[], //最新音乐
+      mvs:[]  //最新MV
     }
   },
   created(){
@@ -91,6 +124,15 @@ export default {
     }).then(function(res){
       console.log(res)
       that.songs = res.data.result
+    })
+
+    //获取最新MV
+    axios({
+      url:"https://autumnfish.cn/personalized/mv",
+      method:"get",
+    }).then(function(res){
+      console.log(res)
+      that.mvs = res.data.result
     })
   }
 };

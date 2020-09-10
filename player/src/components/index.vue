@@ -24,7 +24,7 @@
 		</div>
 		<!--播放器-->
 		<div>
-			<audio src="playerUrl"></audio>
+			<audio src="playerUrl" controls autoplay></audio>
 		</div>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
 	name:"index",
 	data(){
 		return{
-			playerUrl:""
+			playerUrl:"http://m7.music.126.net/20200303182550/8aa5971b1630d1527a922ccd2b97f392/ymusic/035d/0109/520e/478f86cc9f6c6539f7c8ed3e06c1bf8e.mp3"
 		}
 	}
 }
