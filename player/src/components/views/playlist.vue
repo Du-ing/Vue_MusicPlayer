@@ -218,7 +218,7 @@
           url: 'https://autumnfish.cn/top/playlist/',
           method: 'get',
           params: {
-            limit: 14,
+            limit: 15,
             // 起始的值 （页码-1）*每页多少条数据
             offset: (this.page - 1) * 10,
             // 分类数据

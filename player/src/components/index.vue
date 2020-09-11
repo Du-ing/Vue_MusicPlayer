@@ -25,9 +25,9 @@
 		
 		<!--歌曲信息-->
 		<div class="musicInfo">
-			<span>正在播放：</span>
-			<span>{{"《"+musicName+"》~ "}}</span>
-			<span>{{singer}}</span>
+			<span class="info">正在播放：</span>
+			<span class="info">{{"《"+musicName+"》~ "}}</span>
+			<span class="info">{{singer}}</span>
 		</div>
 
 		<!--播放器-->

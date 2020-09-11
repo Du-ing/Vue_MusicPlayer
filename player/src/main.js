@@ -17,15 +17,15 @@ import search from "./components/views/search.vue"
 //创建路由
 let router = new VueRouter({
   routes:[
+    {
+      path:"/",
+      component:discovery
+    },
     //配置地址和组件的对应关系
     {
       //地址
       path:"/discovery",
       //组件
-      component:discovery
-    },
-    {
-      path:"/",
       component:discovery
     },
     {
