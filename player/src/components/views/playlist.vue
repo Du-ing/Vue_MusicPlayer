@@ -209,7 +209,6 @@
             cat: this.tag
           }
         }).then(res => {
-          // console.log(res)
           this.topList = res.data.playlists[0]
         })
       },

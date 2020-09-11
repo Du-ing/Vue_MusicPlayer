@@ -22,9 +22,17 @@
 			<!--路由的出口 地址命中之后，组件显示的位置-->
 			<router-view></router-view>
 		</div>
+		
+		<!--歌曲信息-->
+		<div class="musicInfo">
+			<span>正在播放：</span>
+			<span>{{"《"+musicName+"》~ "}}</span>
+			<span>{{singer}}</span>
+		</div>
+
 		<!--播放器-->
-		<div>
-			<audio src="playerUrl" controls autoplay></audio>
+		<div class="player">
+			<audio :src="musicUrl" controls autoplay></audio>
 		</div>
   </div>
 </template>
@@ -35,7 +43,11 @@ export default {
 	name:"index",
 	data(){
 		return{
-			playerUrl:"http://m7.music.126.net/20200303182550/8aa5971b1630d1527a922ccd2b97f392/ymusic/035d/0109/520e/478f86cc9f6c6539f7c8ed3e06c1bf8e.mp3"
+			musicUrl:"http://duing.site/wp-content/uploads/2020/09/鎖那-さな-言葉のいらない約束-无需言语的约定.mp3",
+			//歌曲名
+			musicName:"さな-言葉のいらない約束",
+			//歌手
+			singer:"鎖那"
 		}
 	}
 }

@@ -79,6 +79,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -97,13 +98,12 @@ export default {
     }
   },
   created(){
-    let that = this
     //轮播图接口
     axios({
       url:"https://autumnfish.cn/banner",
       method:"get",
-    }).then(function(res){
-      that.banners = res.data.banners
+    }).then(res=>{
+      this.banners = res.data.banners
     })
 
     //获取每日推荐歌单
@@ -113,26 +113,24 @@ export default {
       params:{
         limit:12
       }
-    }).then(function(res){
-      that.tuijian = res.data.result
+    }).then(res=>{
+      this.tuijian = res.data.result
     })
 
     //获取最新音乐
     axios({
       url:"https://autumnfish.cn/personalized/newsong",
       method:"get",
-    }).then(function(res){
-      console.log(res)
-      that.songs = res.data.result
+    }).then(res=>{
+      this.songs = res.data.result
     })
 
     //获取最新MV
     axios({
       url:"https://autumnfish.cn/personalized/mv",
       method:"get",
-    }).then(function(res){
-      console.log(res)
-      that.mvs = res.data.result
+    }).then(res=>{
+      this.mvs = res.data.result
     })
   }
 };
