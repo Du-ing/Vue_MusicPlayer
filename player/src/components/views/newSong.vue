@@ -28,7 +28,7 @@
         <th>时长</th>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in lists" :key="index" class="el-table__row">
+        <tr v-for="(item, index) in lists" :key="index" class="el-table__row" @dblclick="playMusic(item.id,item.name,item.album.artists['0'].name)">
           <td>{{ index + 1 }}</td>
           <td>
             <div class="img-wrap">
@@ -43,7 +43,7 @@
             <div class="song-wrap">
               <div class="name-wrap">
                 <span>{{ item.name }}</span>
-                <span class="iconfont icon-mv">
+                <span class="iconfont icon-mv" @click="playMusic(item.id,item.name,item.album.artists['0'].name)">
                   <i class="el-icon-video-play"></i>
                 </span>
               </div>

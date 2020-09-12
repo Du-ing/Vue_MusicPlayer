@@ -3,4 +3,5 @@
 
 感谢大佬提供的接口：[https://autumnfish.cn/](https://autumnfish.cn/)
 
-体验链接：[http://duing.site:888/MusicPlayer/#/](http://duing.site:888/MusicPlayer/#/)
+项目已部署上线
+体验链接：[http://duing.site:888/MusicPlayer/#/discovery](http://duing.site:888/MusicPlayer/#/discovery)

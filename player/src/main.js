@@ -13,36 +13,41 @@ import playlist from "./components/views/playlist.vue"
 import newSong from "./components/views/newSong.vue"
 import newMV from "./components/views/newMV.vue"
 import search from "./components/views/search.vue"
+import songlist from "./components/views/songlist.vue"
 
 //创建路由
 let router = new VueRouter({
-  routes:[
+  routes: [
     {
-      path:"/",
-      component:discovery
+      path: "/",
+      component: discovery
     },
     //配置地址和组件的对应关系
     {
       //地址
-      path:"/discovery",
+      path: "/discovery",
       //组件
-      component:discovery
+      component: discovery
     },
     {
-      path:"/playlist",
-      component:playlist
+      path: "/playlist",
+      component: playlist
     },
     {
-      path:"/newSong",
-      component:newSong
+      path: "/newSong",
+      component: newSong
     },
     {
-      path:"/newMV",
-      component:newMV
+      path: "/newMV",
+      component: newMV
     },
     {
-      path:"/search",
-      component:search
+      path: "/search",
+      component: search
+    },
+    {
+      path: "/songlist",
+      component: songlist
     }
   ]
 })

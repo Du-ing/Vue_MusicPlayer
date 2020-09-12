@@ -55,57 +55,57 @@ export default {
       }
     },
 
-    white(){
+    white() {
       this.$message({
         showClose: true,
-        message: '作者Duing',
+        message: "作者Duing",
         center: true,
-        type: 'success'
+        type: "success",
       });
     },
 
-    blue(){
+    blue() {
       this.$message({
         showClose: true,
-        message: '音乐随行！',
-        center: true,
-      });
-    },
-
-    green(){
-      this.$message({
-        showClose: true,
-        message: '每天开心！',
-        center: true,
-        type: 'success'
-      });
-    },
-
-    gray(){
-      this.$message({
-        showClose: true,
-        message: '感谢使用！',
-        center: true,
-        type: 'warning'
-      });
-    },
-
-    orange(){
-      this.$message({
-        showClose: true,
-        message: '努力勤奋！',
+        message: "音乐随行！",
         center: true,
       });
     },
 
-    red(){
+    green() {
       this.$message({
         showClose: true,
-        message: '爱你哟！',
+        message: "每天开心！",
         center: true,
-        type: 'success'
+        type: "success",
       });
-    }
+    },
+
+    gray() {
+      this.$message({
+        showClose: true,
+        message: "感谢使用！",
+        center: true,
+        type: "warning",
+      });
+    },
+
+    orange() {
+      this.$message({
+        showClose: true,
+        message: "努力勤奋！",
+        center: true,
+      });
+    },
+
+    red() {
+      this.$message({
+        showClose: true,
+        message: "爱你哟！",
+        center: true,
+        type: "success",
+      });
+    },
   },
 };
 </script>
