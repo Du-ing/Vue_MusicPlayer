@@ -148,7 +148,7 @@
     <!-- 推荐MV -->
     <div class="mvs">
       <div class="items">
-        <div class="item" v-for="(item, index) in list" :key="index">
+        <div class="item" v-for="(item, index) in list" :key="index" @click="toMV(item.id)">
           <div class="img-wrap">
             <img :src="item.cover" alt="" />
             <span class="iconfont icon-play">
@@ -244,7 +244,7 @@
             offset: (this.page - 1) * this.limit
           }
         }).then(res => {
-          // console.log(res)
+          //console.log(res)
           this.list = res.data.data
           // 处理次数
           for (let i = 0; i < this.list.length; i++) {
@@ -267,6 +267,10 @@
         // 保存页面 重新获取数据
         this.page = val
         this.getList()
+      },
+
+      toMV(id){
+        this.$router.push(`/mv?q=${id}`);
       }
     }
   }

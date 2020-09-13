@@ -35,7 +35,12 @@
     <div class="news">
       <h3 class="title">最新音乐</h3>
       <div class="items">
-        <div class="item" v-for="(item, index) in songs" :key="index" @click="playMusic(item.id,item.name,item.song.artists[0].name)">
+        <div
+          class="item"
+          v-for="(item, index) in songs"
+          :key="index"
+          @click="playMusic(item.id,item.name,item.song.artists[0].name)"
+        >
           <div class="img-wrap">
             <!-- 封面 -->
             <img :src="item.picUrl" alt />
@@ -60,7 +65,7 @@
     <div class="mvs">
       <h3 class="title">推荐MV</h3>
       <div class="items">
-        <div class="item" v-for="(item,index) in mvs" :key="index">
+        <div class="item" v-for="(item,index) in mvs" :key="index" @click="toMV(item.id)">
           <div class="img-wrap">
             <img :src="item.picUrl" alt />
             <span class="iconfont icon-play">
@@ -125,7 +130,7 @@ export default {
       url: "https://autumnfish.cn/personalized/newsong",
       method: "get",
     }).then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       this.songs = res.data.result;
     });
 
@@ -159,6 +164,9 @@ export default {
         this.$parent.musicName = name;
         this.$parent.singer = singer;
       });
+    },
+    toMV(id) {
+      this.$router.push(`/mv?q=${id}`);
     },
   },
 };

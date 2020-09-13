@@ -165,7 +165,7 @@ export default {
       switch (this.activeIndex) {
         case "songs":
           type = 1;
-          limit = 10;
+          limit = 20;
           break;
         case "lists":
           type = 1000;
@@ -173,7 +173,7 @@ export default {
           break;
         case "mv":
           type = 1004;
-          limit = 8;
+          limit = 12;
           break;
 
         default:

@@ -5,6 +5,10 @@ Vue.config.productionTip = false
 
 //导入vue路由
 import VueRouter from "vue-router"
+//const originalPush = VueRouter.prototype.push
+//   VueRouter.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+//}
 //use一下
 Vue.use(VueRouter)
 //导入需要通过路由管理的组件
@@ -14,6 +18,7 @@ import newSong from "./components/views/newSong.vue"
 import newMV from "./components/views/newMV.vue"
 import search from "./components/views/search.vue"
 import songlist from "./components/views/songlist.vue"
+import mv from "./components/views/mv.vue"
 
 //创建路由
 let router = new VueRouter({
@@ -48,6 +53,10 @@ let router = new VueRouter({
     {
       path: "/songlist",
       component: songlist
+    },
+    {
+      path: "/mv",
+      component: mv
     }
   ]
 })

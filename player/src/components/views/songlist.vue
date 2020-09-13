@@ -72,9 +72,11 @@
         </table>
       </el-tab-pane>
       <el-tab-pane :label="`评论(${total})`" name="2">
-        <!-- 精彩评论 -->
+        <!-- 热门评论 -->
         <div class="comment-wrap">
-          <p class="title">热门评论</p>
+          <p class="title">热门评论
+            <span class="number">( {{hotCount}} )</span>
+          </p>
           <div class="comments-wrap">
             <!-- 评论 -->
             <div v-for="(item, index) in hotComment" :key="index" class="item">
@@ -93,7 +95,7 @@
                   <span class="name">{{ item.beReplied[0].user.nickname }}：</span>
                   <span class="comment">{{ item.beReplied[0].content }}</span>
                 </div>
-                <div class="date">2020-02-12 17:26:11</div>
+                <div class="date">{{item.time}}</div>
               </div>
             </div>
           </div>
@@ -118,7 +120,7 @@
                   <span class="name">{{ item.beReplied[0].user.nickname }}：</span>
                   <span class="comment">{{ item.beReplied[0].content }}</span>
                 </div>
-                <div class="date">2020-02-12 17:26:11</div>
+                <div class="date">{{item.time}}</div>
               </div>
             </div>
           </div>
@@ -149,7 +151,6 @@ export default {
       // 页码
       page: 1,
       // 歌单详情数据
-      // tracks 歌曲列表
       playlist: {},
       // 热门评论
       hotComment: [],
@@ -157,7 +158,6 @@ export default {
       hotCount: 0,
       // 最新评论
       comments: [],
-
       //歌单的歌曲列表
       songlist: [],
     };
