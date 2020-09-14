@@ -1,6 +1,5 @@
 <template>
   <div class="discovery">
-    <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
     <!--轮播图-->
     <el-carousel :interval="4000" type="card">
       <el-carousel-item v-for="(item,index) in banners" :key="index">

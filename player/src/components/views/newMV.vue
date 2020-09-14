@@ -158,6 +158,7 @@
               <i class="el-icon-video-play"></i>
               <div class="num">{{ item.playCount }}</div>
             </div>
+            
           </div>
           <div class="info-wrap">
             <div class="name">{{ item.name }}</div>

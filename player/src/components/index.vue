@@ -4,16 +4,28 @@
     <div class="nav">
       <ul>
         <li>
-          <router-link to="/discovery">发现音乐</router-link>
+          <router-link to="/discovery">
+            <i class="el-icon-position"></i>
+            发现音乐
+          </router-link>
         </li>
         <li>
-          <router-link to="/playlist">推荐歌单</router-link>
+          <router-link to="/playlist">
+            <i class="el-icon-present"></i>
+            推荐歌单
+          </router-link>
         </li>
         <li>
-          <router-link to="/newSong">最新音乐</router-link>
+          <router-link to="/newSong">
+            <i class="el-icon-headset"></i>
+            最新音乐
+          </router-link>
         </li>
         <li>
-          <router-link to="/newMV">最新MV</router-link>
+          <router-link to="/newMV">
+            <i class="el-icon-film"></i>
+            最新MV
+          </router-link>
         </li>
       </ul>
     </div>
