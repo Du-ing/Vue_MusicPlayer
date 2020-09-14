@@ -19,7 +19,7 @@
         <div class="mv-info">
           <!-- 标题 -->
           <h2 class="title">{{ mvInfo.name }}</h2>
-          <span class="date">发布：{{}}</span>
+          <span class="date">发布：{{mvInfo.publishTime}}</span>
           <!-- 播放次数 -->
           <span class="number">播放：{{ mvInfo.playCount }}次</span>
           <!-- 描述 -->
@@ -94,10 +94,12 @@
             <div class="img-wrap">
               <img :src="item.cover" alt />
               <span class="iconfont icon-play">
-                  <i class="el-icon-video-play"></i>
+                <i class="el-icon-video-play"></i>
               </span>
               <div class="num-wrap">
-                <div class="iconfont icon-play"></div>
+                <div class="iconfont icon-play">
+                  <i class="el-icon-video-play"></i>
+                </div>
                 <div class="num">{{ item.playCount }}</div>
               </div>
               <span class="time">{{ item.duration }}</span>
@@ -162,6 +164,11 @@ export default {
         },
       }).then((res) => {
         // console.log(res)
+        for (let i = 0; i < res.data.comments.length; i++) {
+          var date = new Date(res.data.comments[i].time);
+          // 格式化日期
+          res.data.comments[i].time = date.toLocaleString();
+        }
         // 总个数
         this.total = res.data.total;
         // 评论数据
@@ -194,6 +201,21 @@ export default {
         //console.log("相关",res)
         // 保存相关MV
         this.simiMvs = res.data.mvs;
+
+        // 处理时长 毫秒 转为 分秒
+        for (let i = 0; i < this.simiMvs.length; i++) {
+          // 获取 总毫秒数
+          let duration = this.simiMvs[i].duration;
+          let min = parseInt(duration / 1000 / 60);
+          if (min < 10) {
+            min = "0" + min;
+          }
+          let sec = parseInt((duration / 1000) % 60);
+          if (sec < 10) {
+            sec = "0" + sec;
+          }
+          this.simiMvs[i].duration = `${min}:${sec}`;
+        }
       });
 
       // 获取 mv的信息
@@ -204,7 +226,7 @@ export default {
           mvid: this.$route.query.q,
         },
       }).then((res) => {
-        // console.log(res)
+        //console.log(res)
         // mv的信息
         this.mvInfo = res.data.data;
         // 获取 歌手信息
@@ -232,8 +254,20 @@ export default {
         },
       }).then((res) => {
         //console.log(res)
+        for (let i = 0; i < res.data.comments.length; i++) {
+          var date = new Date(res.data.comments[i].time);
+          // 格式化日期
+          res.data.comments[i].time = date.toLocaleString();
+        }
+
         this.total = res.data.total;
         this.comments = res.data.comments;
+
+        for (let i = 0; i < res.data.hotComments.length; i++) {
+          var date = new Date(res.data.hotComments[i].time);
+          // 格式化日期
+          res.data.hotComments[i].time = date.toLocaleString();
+        }
         this.hotComments = res.data.hotComments;
         this.hotTotal = res.data.hotComments.length;
       });

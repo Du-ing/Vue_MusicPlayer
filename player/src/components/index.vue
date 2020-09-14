@@ -42,8 +42,7 @@ export default {
   name: "index",
   data() {
     return {
-      musicUrl:
-        "http://duing.site/wp-content/uploads/2020/09/鎖那-さな-言葉のいらない約束-无需言语的约定.mp3",
+      musicUrl: "",
       //歌曲名
       musicName: "さな-言葉のいらない約束",
       //歌手

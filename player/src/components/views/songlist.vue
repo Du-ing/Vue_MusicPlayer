@@ -11,12 +11,15 @@
         <div class="author-wrap">
           <!-- 头像 -->
           <img class="avatar" :src="playlist.creator.avatarUrl" alt />
-          <span class="name">{{ playlist.creator.nickname }}/</span>
+          <span class="name">{{ playlist.creator.nickname }}</span>
           <span class="time">{{ playlist.createTime}} 创建</span>
         </div>
-        <div class="play-wrap" >
-          <span class="iconfont icon-circle-play" @click="playMusic(songlist[0].id,songlist[0].name,songlist[0].ar[0].name)">
-              <i class="el-icon-video-play"></i>
+        <div class="play-wrap">
+          <span
+            class="iconfont icon-circle-play"
+            @click="playMusic(songlist[0].id,songlist[0].name,songlist[0].ar[0].name)"
+          >
+            <i class="el-icon-video-play"></i>
           </span>
           <span class="text">播放全部</span>
         </div>
@@ -46,7 +49,12 @@
             <th>时长</th>
           </thead>
           <tbody>
-            <tr class="el-table__row" v-for="(item,index) in songlist" :key="index" @dblclick="playMusic(item.id,item.name,item.ar[0].name)">
+            <tr
+              class="el-table__row"
+              v-for="(item,index) in songlist"
+              :key="index"
+              @dblclick="playMusic(item.id,item.name,item.ar[0].name)"
+            >
               <td>{{index+1}}</td>
               <td>
                 <div class="img-wrap" @click="playMusic(item.id,item.name,item.ar[0].name)">
@@ -74,10 +82,11 @@
       <el-tab-pane :label="`评论(${total})`" name="2">
         <!-- 热门评论 -->
         <div class="comment-wrap">
-          <p class="title">热门评论
+          <p class="title">
+            热门评论
             <span class="number">( {{hotCount}} )</span>
           </p>
-          <div class="comments-wrap">
+          <div class="comments-wrap" v-if="hotComment.length != 0">
             <!-- 评论 -->
             <div v-for="(item, index) in hotComment" :key="index" class="item">
               <div class="icon-wrap">
@@ -172,6 +181,10 @@ export default {
       },
     }).then((res) => {
       //console.log(res.data)
+      // 根据毫秒数构建 Date 对象
+      var date = new Date(res.data.playlist.createTime);
+      // 格式化日期
+      res.data.playlist.createTime = date.toLocaleString();
       this.playlist = res.data.playlist;
     });
 
@@ -183,7 +196,7 @@ export default {
         id: this.$route.query.q,
       },
     }).then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       this.songlist = res.data.playlist.tracks;
 
       // 处理时长 毫秒 转为 分秒
@@ -214,6 +227,11 @@ export default {
       },
     }).then((res) => {
       //console.log(res)
+      for (let i = 0; i < res.data.hotComments.length; i++) {
+        var date = new Date(res.data.hotComments[i].time);
+        // 格式化日期
+        res.data.hotComments[i].time = date.toLocaleString();
+      }
       this.hotComment = res.data.hotComments;
       // 保存个数
       this.hotCount = res.data.total;
@@ -230,6 +248,11 @@ export default {
       },
     }).then((res) => {
       //console.log(res.data)
+      for (let i = 0; i < res.data.comments.length; i++) {
+        var date = new Date(res.data.comments[i].time);
+        // 格式化日期
+        res.data.comments[i].time = date.toLocaleString();
+      }
       // 总个数
       this.total = res.data.total;
       // 评论数据
@@ -253,6 +276,11 @@ export default {
         },
       }).then((res) => {
         // console.log(res)
+        for (let i = 0; i < res.data.comments.length; i++) {
+          var date = new Date(res.data.comments[i].time);
+          // 格式化日期
+          res.data.comments[i].time = date.toLocaleString();
+        }
         // 总个数
         this.total = res.data.total;
         // 评论数据
