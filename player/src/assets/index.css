@@ -426,6 +426,7 @@ ol {
 
 .mv .title {
   margin-bottom: 20px;
+  color: rgb(245, 212, 121);
 }
 
 .mv .mv-wrap {
@@ -458,6 +459,7 @@ ol {
 
 .mv .mv-wrap .info-wrap {
   margin-bottom: 50px;
+  background-color: rgb(174, 250, 221);
 }
 
 .mv .mv-wrap .info-wrap .singer-info {
@@ -485,6 +487,7 @@ ol {
 .mv .mv-wrap .info-wrap .mv-info .desc {
   font-size: 15px;
   margin-top: 20px;
+  color: #c3473a;
 }
 
 .mv .mv-wrap .comment-wrap {
@@ -522,6 +525,7 @@ ol {
 .mv .mv-wrap .comment-wrap .item .content-wrap {
   padding-bottom: 20px;
   flex: 1;
+  background-color: rgb(160, 241, 237);
 }
 
 .mv .mv-wrap .comment-wrap .item .content-wrap .name {
@@ -770,6 +774,7 @@ ol {
 
 .songlist .top-wrap {
   display: flex;
+  background-color: rgb(232, 247, 208);
 }
 
 .songlist .top-wrap span {
@@ -787,6 +792,7 @@ ol {
 
 .songlist .top-wrap .info-wrap .title {
   margin-bottom: 20px;
+  color: #dfac67;
 }
 
 .songlist .top-wrap .info-wrap .author-wrap {
@@ -870,6 +876,7 @@ ol {
 
 .songlist .comment-wrap .title {
   font-size: 20px;
+  color: #c3473a;
 }
 
 .songlist .comment-wrap .title .number {
@@ -904,6 +911,7 @@ ol {
 .songlist .comment-wrap .item .content-wrap {
   padding-bottom: 20px;
   flex: 1;
+  background-color: rgb(206, 247, 247);
 }
 
 .songlist .comment-wrap .item .content-wrap .name {

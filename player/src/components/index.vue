@@ -56,9 +56,9 @@ export default {
     return {
       musicUrl: "",
       //歌曲名
-      musicName: "さな-言葉のいらない約束",
+      musicName: "",
       //歌手
-      singer: "鎖那",
+      singer: "",
     };
   },
 };
